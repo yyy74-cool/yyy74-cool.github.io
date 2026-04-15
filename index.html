@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中老年AI教学 · 我的工作平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* 容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* 导航栏 */
+        nav {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        /* 通用区域样式 */
+        section {
+            margin-bottom: 4rem;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            border-left: 5px solid #2563eb;
+            padding-left: 1rem;
+        }
+        .hero {
+            background: linear-gradient(135deg, #eef2ff 0%, #ffffff 100%);
+            border-radius: 2rem;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+        .hero .highlight {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #334155;
+            max-width: 700px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        /* 卡片网格 (作品集/教程用) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.8rem;
+        }
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.05), 0 10px 15px -3px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        .card .tag {
+            display: inline-block;
+            background: #e2e8f0;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+        .card p {
+            color: #475569;
+            margin-bottom: 1.2rem;
+        }
+        .card a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        /* 视频/图片嵌入占位 */
+        .video-placeholder {
+            background: #e2e8f0;
+            border-radius: 1rem;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        /* 联系与页脚 */
+        .contact-form {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 700px) {
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">📱 银发AI学堂</div>
+        <div class="nav-links">
+            <a href="#">首页</a>
+            <a href="#portfolio">作品集</a>
+            <a href="#about">关于</a>
+            <a href="#contact">联系</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- 醒目区域 -->
+    <div class="hero">
+        <h1>让<span class="highlight">AI</span>成为长辈的好帮手</h1>
+        <p>专注中老年AI教学 · 实用教程 · 创意视频作品</p>
+        <a href="#portfolio" class="btn">👀 浏览作品</a>
+    </div>
+
+    <!-- 作品集 / 教程展示区 -->
+    <section id="portfolio">
+        <h2 class="section-title">📽️ AI视频作品 · 教程案例</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="video-placeholder">🎬 此处可嵌入你的AI视频</div>
+                <h3>用AI让老照片“开口说话”</h3>
+                <div class="tag">可灵·教程</div>
+                <p>把家中泛黄的老照片修复成动态视频，长辈看了直呼感动。</p>
+                <a href="#">观看教程 →</a>
+            </div>
+            <div class="card">
+                <div class="video-placeholder">🎙️ 健康助手·防骗指南</div>
+                <h3>AI防骗助手 · 一句话识谣言</h3>
+                <div class="tag">即梦·实操</div>
+                <p>教长辈用AI快速查证谣言，守住养老钱。</p>
+                <a href="#">学习防骗技巧 →</a>
+            </div>
+            <div class="card">
+                <div class="video-placeholder">✍️ 提示词案例库</div>
+                <h3>50个“银发族”专用提示词</h3>
+                <div class="tag">免费资源</div>
+                <p>涵盖生活、健康、娱乐场景，让AI更懂长辈。</p>
+                <a href="#">下载提示词合集 →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about">
+        <h2 class="section-title">🧑‍🏫 关于我</h2>
+        <div class="card" style="padding: 2rem;">
+            <p style="font-size: 1.1rem;">你好，我是[老杨]。我专注于“中老年AI科普”赛道，通过易懂的教程和视频，帮助长辈跨越数字鸿沟，轻松享受AI带来的便利。</p>
+            <p style="margin-top: 1rem;">曾在[某地/某机构]开展线下AI公益课，全网累积粉丝[XX]人。合作、约课请通过下方方式联系。</p>
+        </div>
+    </section>
+
+    <!-- 联系 -->
+    <section id="contact">
+        <h2 class="section-title">📬 合作与联系</h2>
+        <div class="contact-form">
+            <p>📧 邮箱：<strong>你的邮箱laoyangai2026@163.com</strong></p>
+            <p>📱 视频号 / 抖音：<strong>@你的账号</strong></p>
+            <p>🤝 欢迎同行交流、课程合作、案例分享。</p>
+            <a href="mailto:你的邮箱@example.com" class="btn">📨 发送邮件</a>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>© 2026 银发AI学堂 · 让科技温暖每一个年龄段</p>
+</footer>
+</body>
+</html>
